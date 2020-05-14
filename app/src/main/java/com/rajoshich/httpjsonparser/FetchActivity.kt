@@ -28,7 +28,11 @@ class FetchActivity : AppCompatActivity() {
     }
 
     private fun fetchWithVolley() {
-        apiManager.getArtists()
+        apiManager.getArtists ({
+            val list = it.artists
+            Log.i(TAG, it.toString())
+
+        })
 
 
     }

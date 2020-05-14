@@ -9,7 +9,7 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var listOfArtists:List<Artist>
+    private lateinit var listOfArtists: AllArtist
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,24 +17,20 @@ class MainActivity : AppCompatActivity() {
         val apiManager = (application as HttpApp).apiManager
 
         apiManager.getArtists({ allArtist ->
-             listOfArtists = allArtist.artists
+             listOfArtists = allArtist
 
         }, {
             Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
         })
+        val list = listOfArtists.artists
+        button.text = list[0].name
     }
 
-//    fun fetchDataWithGson() {
-//        val gson = Gson()
-//        val artist: Artist = gson.fromJson(listOfArtists, AllArtist::class.java)
-//        button.text = artist
-//    }
+    fun fetchDataWithGson() {
+       // val gson = Gson()
+//        val artist: Artist = gson.fromJson(listOfArtists, Artist::class.java)
 
-    private fun fetchJson() {
-        try {
-            val jsonObject = JSONObject(listOfArtists)
-            val name = jsonObject.g
-
-        }
     }
+
+
 }
