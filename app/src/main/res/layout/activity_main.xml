@@ -15,7 +15,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            android:visibility="gone"
+            android:contentDescription="@string/user_image" />
 
         <TextView
             android:id="@+id/userName"
@@ -24,42 +26,50 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/userImage"
-            android:layout_marginLeft="16dp"
-            android:text="username"
+            android:layout_marginStart="16dp"
+            android:visibility="gone"
             android:textSize="25sp"/>
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName"
-        android:textSize="30dp"
+        android:visibility="gone"
+        android:textSize="30sp"
         />
     <TextView
         android:id="@+id/nose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nose?"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
         android:layout_margin="16dp"
-        android:textSize="25dp"/>
+        android:visibility="gone"
+        android:textSize="25sp"/>
     <TextView
         android:id="@+id/platform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Platform"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nose"
         android:layout_margin="16dp"
-        android:textSize="25dp"/>
+        android:visibility="gone"
+        android:textSize="25sp"/>
 
-
-
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLayout"
+        android:layout_margin="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="15sp"/>
 
     <LinearLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,6 +87,7 @@
         android:padding="16dp"
         android:ellipsize="end"
         android:maxLines="1"
+        android:foreground="?selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     </LinearLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HttpJsonParser</string>
+    <string name="user_image">user image</string>
 </resources>
