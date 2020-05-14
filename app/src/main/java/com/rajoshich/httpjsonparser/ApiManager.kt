@@ -15,19 +15,16 @@ class ApiManager (context: Context) {
     private val queue: RequestQueue = Volley.newRequestQueue(context)
     private val context:Context = context
 
-    fun getArtists(onArtistReady: (AllArtist) -> Unit, onError: (() -> Unit)? = null) {
-        val artistsURL = "https://raw.githubusercontent.com/echeeUW/codesnippets/master/allartists.json"
+    fun getUsers(onUserReady: (User) -> Unit, onError: (() -> Unit)? = null) {
+        val userURL = "https://raw.githubusercontent.com/echeeUW/codesnippets/master/user_info.json"
         val req = StringRequest(
-            Request.Method.GET, artistsURL,
+            Request.Method.GET, userURL,
             {response ->
-
                 val gson = Gson()
-                val allArtists = gson.fromJson(response, AllArtist::class.java)
-                onArtistReady(allArtists)
-
+                val user = gson.fromJson(response, User::class.java)
+                onUserReady(user)
             },
             {
-//                val context: Context = this
                 Toast.makeText(context, "error!", Toast.LENGTH_SHORT).show()
             })
         queue.add(req)
